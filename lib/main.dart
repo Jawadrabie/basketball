@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'Basktball.dart';
+import 'cubit/counter_cubit.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    BlocProvider(
+      create: (context) => CounterCubit(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Basketball(),
+      ),
+    ),
+  );
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-
-
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-
-     home: Basketball(),
-    );
-  }
-}
-
